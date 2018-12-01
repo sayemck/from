@@ -1,0 +1,150 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<script language="javascript">
+function check(){
+	var res="";
+	var msg=true;
+	var name= document.getElementById("name").value;
+	var password= document.getElementById("password").value;
+	var gender= document.getElementById("gender").value;
+	var gender1= document.getElementById("gender1").value;
+	var gender2= document.getElementById("gender2").value;
+	
+	
+	var nat= document.getElementById("nat").value;
+	
+	/*-----------------------Hobby------------------------------------------*/
+	var hb="";
+	var hobby=document.forms[0].hobby;
+	for(i=0; i<hobby.length;i++){
+		if(hobby[i].checked){
+			hb+=hobby[i].value+" ";
+			}
+		}
+	/*--------------------------Name---------------------------------------*/
+	if(name.length==0){
+		document.getElementById("error_name").innerHTML="Enter Your Name";
+		 var msg=false;
+		}
+		else{
+			document.getElementById("error_name").innerHTML="";
+			res +="Name:"+name+"<br/>";
+			}
+	/*--------------------------password---------------------------------------*/	
+		if(password.length<6 || password.length>8){
+		document.getElementById("error_password").innerHTML="Enter Your Password";
+		 var msg=false;
+		}
+		else{
+			document.getElementById("error_password").innerHTML="";
+			res +="Password:"+password+"<br/>";
+			}
+	/*-------------------------Hobby----------------------------------------*/	
+		if(hb.length==0){
+		document.getElementById("error_hobby").innerHTML="Please Select Hobby";
+		 var msg=false;
+		}
+		else{
+			document.getElementById("error_hobby").innerHTML=" ";
+			res +="Hobby:"+hb+"<br/>";
+			}
+	/*------------------------------Nationality-----------------------------------*/		
+		if(nat.length==0){
+		document.getElementById("error_nat").innerHTML="Please Select Nationality";
+		 var msg=false;
+		}
+		else{
+			document.getElementById("error_nat").innerHTML="";
+			res +="Nationality:"+nat+"<br/>";
+			}
+	/*-------------------------Gender----------------------------------------*/
+		if(document.getElementById("gender").checked==true){
+			res +="Gender:"+gender+"<br/>";
+			}
+		if(document.getElementById("gender1").checked==true){
+			res +="Gender:"+gender1+"<br/>";
+			}
+		if(document.getElementById("gender2").checked==true){
+			res +="Gender:"+gender2+"<br/>";
+			}		
+	/*-----------------------------------------------------------------*/
+	if(msg==true){
+			var x=window.open("","msgWindow","weight=400,height=400");
+			x.document.write(res);
+			}					
+
+	}
+</script>
+
+<body>
+</body>
+<div align="center">
+    <fieldset>
+    	<legend>Personal Information</legend>
+        <form id="frm" name="frm">
+            <h2>Application Form</h2>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                    <input type="text" id="name" name="name"/>
+                    <span id="error_name"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                    <input type="password" id="password" name="password"/>
+                    <span id="error_password"></span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Hobby:</td>
+                    <td>
+                    <input type="checkbox" id="hobby" name="hobby" value="Eat"/>Eat
+                    <input type="checkbox" id="hobby" name="hobby" value="Sleep"/>Sleep
+                    <input type="checkbox" id="hobby" name="hobby" value="Travle"/>Travle
+                    <input type="checkbox" id="hobby" name="hobby" value="Study"/>Study
+                    <input type="checkbox" id="hobby" name="hobby" value="Move"/>Move
+
+                    <span id="error_hobby"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nationality:</td>
+                    <td>
+                    	<select id="nat" name="nat">
+                        	<option value="">Select</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="India">India</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+                    <span id="error_nat"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                    <input type="radio" id="gender" name="gender" value="Male"/>Male
+                    <input type="radio" id="gender1" name="gender" value="Female"/>Female
+                    <input type="radio" id="gender2" name="gender" value="Common"/>Common
+                    </td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="button" value="Submit" onClick="check()"/></td>
+                </tr>
+            </table>
+        
+        </form>
+    </fieldset>
+</div>
+</html>
